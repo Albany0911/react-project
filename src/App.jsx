@@ -1,6 +1,8 @@
 import Hero from "./components/Hero/Hero"
 import Navbar from "./components/Navbar/Navbar"
 import UsPage from "./components/Nosotros/UsPage"
+import ProductsPage from "./components/Products/ProductsPage"
+import ProductDetail from "./components/productDetails/ProductDetail"
 import Fondo from "./assets/Fondo.png"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
@@ -22,10 +24,13 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/nosotros" element={<UsPage />} />
+          <Route path="/UsPage" element={<UsPage />} />
+          <Route path="/product" element={<ProductsPage />} />
+          <Route path="/productList" element={<ProductDetail />} />
         </Routes>
-        
+
       </BrowserRouter>
+      
     </div>
   )
 }

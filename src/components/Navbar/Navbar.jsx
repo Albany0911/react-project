@@ -11,7 +11,7 @@ const navbarlinks = [
     {
         id:2,
         title:"Nosotros",
-        Link: "/nosotros"
+        Link: "/UsPage"
     },
     {
         id:3,
@@ -23,6 +23,11 @@ const navbarlinks = [
         title:"Soporte",
         Link: "#"
 
+    },
+    {
+        id:5,
+        title:"Productos",
+        Link: "/product"
     }
 ]
 
