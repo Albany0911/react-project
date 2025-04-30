@@ -4,7 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: rgb(88, 0, 170);
-}
+#text-button {
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      padding: 10px 15px;
+    }
+  }

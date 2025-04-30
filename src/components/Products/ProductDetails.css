@@ -4,7 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: rgb(88, 0, 170);
-}
+#btn-pay{
+    border-radius: 8px;
+    background-color: rgb(42, 129, 163);
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }

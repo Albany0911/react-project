@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#navbar-mobile {
+    height: 100vh;
+  }
+
+  @media screen and (min-width: 768px) {
+    .backdrop{
+      position: fixed;
+      top: -35px;
+      margin-top: 100px;
+      background-color: wheat;
+      z-index: 1000;
+  
+    }
+  
+    .category-links{
+      overflow: auto;
+      overflow-y: scroll;
+      position: absolute;
+      margin: 0 auto;
+      transition-delay: .15s;
+      z-index: 1001;
+      background-color: rgb(147 51 234 / 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      height: 200px;
+    }
+  
+    .category-links::-webkit-scrollbar {
+      width: 5px;
+    }
+    .category-links::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 5px;
+    }
+    .category-links::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  
+  
+    #navbar-category{
+      border-top-color: blueviolet;
+    }
+  
+    #navbar-category #navbar-link-category a{
+      font-size: 16px;
+      padding: 15px 30px 15px 30px;
+      color: white;
+      border-bottom: 1px solid rgb(205, 202, 202);
+      margin: 0px 5px 0px 5px;
+  
+    }
+  
+    #navbar-category #navbar-link-category a:hover{
+      background-color: rgb(42, 129, 163);
+      color: white;
+      border-radius: 10px;
+      transition: all .3s ease-in-out;
+    }
+  
+    #navbar-link{
+      padding: 5px;
+    }
+  
+    #navbar-link:hover .hidden{
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: .30s;
+  
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .backdrop-mobile{
+      padding-top: 15px;
+    }
+    .category-links-mobile{
+      display: flex;
+      flex-direction: inherit;
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow: auto;
+      overflow-y: scroll;
+      height: 200px;   
+    }
+
+    .category-links-mobile #navbar-link-category-mobile a{
+      font-size: 14px;
+      padding: 15px;
+      color: white;
+      margin: 0px 5px 5px 5px;
+      border: #555 solid 1px;
+      width: 100px;
+      text-align: center;
+    }
+
+    #navbar-category-mobile{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+
+  /* #navbar-category {
+    height: 100vh;
+  }
+  #navbar-category .nav-link {
+    font-size: 1.2rem;
+  } */

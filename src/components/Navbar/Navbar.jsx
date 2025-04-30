@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Logo from '../../assets/Logo.png'
 import { Link } from 'react-router-dom'
+import { fetchPokemonByType } from '../../helpers/loadData'
+import './Navbar.css'
 
 const navbarlinks = [
     {
@@ -28,6 +30,11 @@ const navbarlinks = [
         id:5,
         title:"Productos",
         Link: "/product"
+    },
+    {
+        id:6,
+        title:"Categorias",
+        Link: "#"
     }
 ]
 
@@ -55,9 +62,38 @@ const navbarRedes = [
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [categoryLinksPokemon, setNavbarLinksPokemon] = useState([]);
+    const [isOpenCateogory, setIsOpenCategory] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            // Fetch the Pokemon data from the API            
+            const res = await fetchPokemonByType();
+            const promises = res.map(async (pokemon)=>{
+                const response = await fetch(pokemon.url);
+                const data = await response.json();                
+                
+                return {
+                    id: data.id,
+                    title: data.name,
+                    Link: `/product/category/${data.name}`
+                }
+            })
+            
+            const links = await Promise.all(promises);
+            setNavbarLinksPokemon(links);
+            
+        }
+        fetchData();
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    }
+
+    const toggleCategory = () => {
+        setIsOpenCategory(!isOpenCateogory);
     }
 
   return (
@@ -99,15 +135,36 @@ const Navbar = () => {
             <div className='hidden md:block'>
                 <ul className='flex sm:space-x-8 space-x-4'>
                     {navbarlinks.map((link) => (
-                        <li key={link.id}>
+                        <li  id='navbar-link' key={link.id}>
                             <Link 
+                               
                                 className='text-white sm:text-lg text-sm hover:text-sky-200 transition-transform hover:scale-110
                                 transform inline-block duration-300'
                                 to={link.Link}>
-                                {link.title}
+                                {link.title} 
                             </Link>
+                            {link.title === "Categorias" 
+                                        ? (
+                                    <div className='backdrop'>
+                                        <div className='category-links hidden'>
+                                                {categoryLinksPokemon.map((link) => (
+                                                    <div id='navbar-category' key={link.id}>
+                                                        <div id='navbar-link-category' className='flex flex-col transition-none'>
+                                                            <Link 
+                                                                to={link.Link}>
+                                                                {link.title.toUpperCase()}
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                                }
+                                            </div>
+                                        </div>
+                                        )
+                                : null}
+                            
                         </li>
-                    ))}
+                    ))} 
                 </ul>
             </div>
             
@@ -135,11 +192,42 @@ const Navbar = () => {
             <ul className='flex flex-col px-4 py-2'>
                 {navbarlinks.map((link) => (
                     <li key={link.id} className='py-2 text-center'>
-                        <Link 
-                            className='text-white hover:text-sky-200' 
-                            to={link.Link} onClick={() => setIsOpen(false)}>
-                            {link.title}
-                        </Link>
+                        {
+                            link.title === "Categorias" 
+                            ? (
+                                <Link 
+                                    className='text-white hover:text-sky-200'
+                                    onClick={toggleCategory}>
+                                    {link.title}
+                                </Link>
+                            ) : (
+                            <Link 
+                                className='text-white hover:text-sky-200' 
+                                to={link.Link} >
+                                {link.title}
+                            </Link>
+                            )
+                        }
+                        {link.title === "Categorias" 
+                                ? (
+                            <div className={`backdrop-mobile ${isOpenCateogory ? "hidden" : ""}`}>
+                                <div className='category-links-mobile'>
+                                        {categoryLinksPokemon.map((link) => (
+                                            <div id='navbar-category-mobile' key={link.id}>
+                                                <div id='navbar-link-category-mobile' className='flex flex-col transition-none'>
+                                                    <Link 
+                                                        to={link.Link}
+                                                        onClick={() => setIsOpen(false)}>
+                                                        {link.title.toUpperCase()}
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        ))
+                                        }
+                                    </div>
+                                </div>
+                                )
+                        : null}
                     </li>
                 ))}
             </ul>

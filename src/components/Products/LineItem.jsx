@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const LineItem = ({pokemon}) => {
   return (
-    <div>
+    <div id='card'>
       <motion.div
             variants={slipeUp(0.3)}
             initial='initial'
@@ -16,8 +16,9 @@ const LineItem = ({pokemon}) => {
             <p><b>HP:</b> {pokemon.hp}</p>
             <p><b>Attack:</b> {pokemon.attack}</p>
             <p><b>Defense:</b> {pokemon.defense}</p>
+            <p><b>Type:</b> {pokemon.type}</p>
             <Link id='btn-pay' className='items-center cursor-pointer' 
-                to={`/product/${pokemon.name}`}>
+                to={`/item/${pokemon.id}`}>
                     Pedir Ahora 
               <i className="bi bi-credit-card text-xl ml-2"></i>
             </Link>

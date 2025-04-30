@@ -3,6 +3,7 @@ import Personaje from '../../assets/Personaje.png'
 import Logo from '../../assets/Logo.png'
 import { motion } from 'framer-motion'
 import { slipeUp, slipeInFromSide } from '../../utility/animation'
+import './Hero.css'
 
 const Hero = () => {
   return (

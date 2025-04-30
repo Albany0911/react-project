@@ -1,6 +1,6 @@
 import Hero from "./components/Hero/Hero"
 import Navbar from "./components/Navbar/Navbar"
-import UsPage from "./components/Nosotros/UsPage"
+import UsPage from "./components/UsPage/UsPage"
 import ProductsPage from "./components/Products/ProductsPage"
 import ProductDetail from "./components/productDetails/ProductDetail"
 import Fondo from "./assets/Fondo.png"
@@ -21,15 +21,14 @@ function App() {
     <div style={bgImagen} className="overflow-hidden min-h-screen">
       <BrowserRouter>
         <Navbar />
-
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/UsPage" element={<UsPage />} />
           <Route path="/product" element={<ProductsPage />} />
-          <Route path="/productList" element={<ProductDetail />} />
+          <Route path="/item/:id" element={<ProductDetail productId={1} />} />
+          <Route path="/product/category/:name" element={<ProductsPage />} />
         </Routes>
-
-      </BrowserRouter>
+      </BrowserRouter>    
       
     </div>
   )
