@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.products-page{
+  display: flex;
+  flex-direction: column;
+}
+
+.products-page-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 110px;
+}
 #btn-pay{
     border-radius: 8px;
     background-color: rgb(42, 129, 163);
@@ -13,3 +24,43 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  #card{
+    width: 100%;
+  }
+
+@media screen and (max-width: 1440px) {
+  .products-page-content{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  #product-line-item-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #product-line-item-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #product-line-item-container{
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 40px;
+  }
+  .products-page-content{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #product-line-item-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

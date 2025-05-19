@@ -2,7 +2,7 @@ import Hero from "./components/Hero/Hero"
 import Navbar from "./components/Navbar/Navbar"
 import UsPage from "./components/UsPage/UsPage"
 import ProductsPage from "./components/Products/ProductsPage"
-import ProductDetail from "./components/productDetails/ProductDetail"
+import ProductDetail from "./components/ProductDetails/ProductDetail"
 import Fondo from "./assets/Fondo.png"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 

@@ -15,7 +15,7 @@ const fetchData = async (id) => {
             attack: data.stats[1].base_stat,
             defense: data.stats[2].base_stat,
             specialAttack: data.stats[3].base_stat,
-            type: data.types.map(type => type.type.name).join("/ ").toUpperCase(),
+            type: data.types.map(type => type.type.name).join("/ ").toUpperCase()
         }
 
     } catch (error) {
@@ -27,7 +27,8 @@ export const fetchPokemonByType = async () => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/type/`);
         const data = await res.json();
-        const pokemons = data.results;        
+        const pokemons = data.results;   
+             
         return pokemons;
         
     } catch (error) {

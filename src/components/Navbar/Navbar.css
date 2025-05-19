@@ -7,6 +7,9 @@
 #navbar-mobile {
     height: 100vh;
   }
+#navbar-mobile .title-category{
+    margin-right: 5px;
+  }
 
   @media screen and (min-width: 768px) {
     .backdrop{
@@ -78,6 +81,14 @@
   }
 
   @media screen and (max-width: 768px) {
+    #navbar-container{
+      opacity: none;
+      visibility: visible;
+      backdrop-filter: none;
+      background-color: rgb(147 51 234 );
+      box-shadow: none;
+      border-bottom: 1px solid rgb(205, 202, 202);
+    }
     .backdrop-mobile{
       padding-top: 15px;
     }

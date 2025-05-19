@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#filter-content{
+    width: 290px;
+    border-radius: 8px;
+
+    h3{
+        width: 195px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    #filter-content{
+        width: 260px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #filter-content{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #filter-content{
+        display: none;
+    }
+    #filter-content-mobile{
+        margin-left: -10px;
+        
+    }
+    .filter-caterory-mobile{
+        display: flex;
+        justify-content: start;
+        margin-bottom: 5px;
+        background-color: rgb(147 51 234 );
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        z-index: 49;
+        top: 95px;
+        width: 100%;
+        margin-left: -10px;
+    }
+
+    .filter-category-btn{
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    #filter-content-mobile{
+        height: 100vh;
+        z-index: 49;
+        margin-top: 34px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .filter-caterory-mobile{
+        top: 73px;
+
+        button{
+            font-size: 16px;
+        }
+    }
+
+    #filter-content-mobile{
+        margin-top: 12px;
+    }
+}
+/* @media screen and (max-width: 768px) {
+    display: none;
+    
+} */

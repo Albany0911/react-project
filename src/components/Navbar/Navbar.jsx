@@ -72,7 +72,8 @@ const Navbar = () => {
             const res = await fetchPokemonByType();
             const promises = res.map(async (pokemon)=>{
                 const response = await fetch(pokemon.url);
-                const data = await response.json();                
+                const data = await response.json();   
+                              
                 
                 return {
                     id: data.id,
@@ -97,7 +98,7 @@ const Navbar = () => {
     }
 
   return (
-    <nav className='fixed top-0 left-0 bg-purple-900 w-full bg-opacity-30 backdrop-blur-sm z-50 shadow-lg'>
+    <nav id='navbar-container' className='fixed top-0 left-0 bg-purple-900 w-full bg-opacity-30 backdrop-blur-sm z-50 shadow-lg'>
         <div className='flex justify-between items-center sm:px-12 sm:py-6 px-4 py-3'>
 
             {/* Logo navbar */}
@@ -198,7 +199,8 @@ const Navbar = () => {
                                 <Link 
                                     className='text-white hover:text-sky-200'
                                     onClick={toggleCategory}>
-                                    {link.title}
+                                    <span className='title-category'>{link.title}</span>
+                                    {isOpenCateogory ? <i className="bi bi-chevron-up"></i> : <i className="bi bi-chevron-down"></i>}
                                 </Link>
                             ) : (
                             <Link 
